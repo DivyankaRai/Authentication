@@ -41,6 +41,8 @@ exports.loginApi = async(req,res)=>{
             }
             else{
 
+                //  to generate the token
+                const token = await userValid.generateAuthToken()
             }
         }
     } catch (error) {
