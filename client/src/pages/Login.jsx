@@ -46,8 +46,8 @@ const Login = () => {
   return (
     <div
       style={{
-        width: "300px",
-        height: "280px",
+        width: "370px",
+        height: "390px",
         border: "2px solid black",
         margin: "auto",
         textAlign: "center",
@@ -56,11 +56,11 @@ const Login = () => {
       }}
     >
       <form>
-        <h3>Enter your Email</h3>
+        <h1>Enter your Email</h1>
         <div
           style={{
             backgroundColor: "white",
-            height: "30px",
+            height: "40px",
             width: "80%",
             margin: "auto",
           }}
@@ -79,12 +79,12 @@ const Login = () => {
             onChange={setVal}
           />
         </div>
-        <h3>Enter your password</h3>
+        <h1>Enter your password</h1>
         <div
           style={{
             display: "flex",
             backgroundColor: "white",
-            height: "30px",
+            height: "40px",
             width: "80%",
             margin: "auto",
           }}
@@ -108,9 +108,9 @@ const Login = () => {
         </div>
         <br />
         <button onClick={addUserData}>Login</button>
-        <p>
+        <h4>
           Don't have an account? <NavLink to="/register">Sign-Up</NavLink>
-        </p>
+        </h4>
       </form>
     </div>
   );

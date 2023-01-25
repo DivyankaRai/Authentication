@@ -50,13 +50,15 @@ userSchema.pre("save", async function(next){
 
 userSchema.methods.generateAuthToken = async function(){
     try {
-        let token23 = jwt.sign({_id:this._id, secret_key},{
+        let token23 = jwt.sign({_id:this._id}, secret_key,{
             expiresIn:"1d"
         })
         this.tokens = this.tokens.concat({token:token23})
+        await this.save()
+        return token23
 
     } catch (error) {
-        
+        res.status(401).json(error)
     }
 }
 const user = new mongoose.model("users",userSchema)

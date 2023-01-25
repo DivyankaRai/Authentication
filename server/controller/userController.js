@@ -32,6 +32,7 @@ exports.loginApi = async(req,res)=>{
     try {
         const userValid = await user.findOne({email:email})
 
+        // console.log(userValid)
         if(userValid){
 
         // to compare login password with hashed password
@@ -40,9 +41,11 @@ exports.loginApi = async(req,res)=>{
                 res.status(402).json("invalid details")
             }
             else{
-
                 //  to generate the token
-                const token = await userValid.generateAuthToken()
+                // const token = await userValid.generateAuthToken()
+
+                // console.log(token)
+                console.log("error")
             }
         }
     } catch (error) {
