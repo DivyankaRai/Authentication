@@ -19,8 +19,28 @@ const Login = () => {
 
   console.log(inpVal);
 
-  const addUserData = () =>{
-   
+  const addUserData = async(e) =>{
+    e.preventDefault()
+    const {email,password} = inpVal 
+    try {
+      const data = await fetch("http://localhost:8080/login",{
+        method:"POST",
+        headers : { 
+          'Content-Type': 'application/json'
+         },
+        body:JSON.stringify({
+          email,password
+        })
+      })
+      const res = await data.json()
+      console.log(res,"res");
+      // if(res.status == 200){
+      //   (alert("registered successfully"))
+      //   nav("/")
+      // }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
