@@ -29,23 +29,34 @@ exports.registerApi = async(req,res)=> {
 
 exports.loginApi = async(req,res)=>{
     const {email,password} = req.body
+    console.log(req.body)
     try {
         const userValid = await user.findOne({email:email})
 
-        // console.log(userValid)
         if(userValid){
 
         // to compare login password with hashed password
             const isMatch = await bcrypt.compare(password,userValid.password)
             if(!isMatch){
-                res.status(402).json("invalid details")
+                res.status(422).json("invalid details")
             }
             else{
                 //  to generate the token
-                // const token = await userValid.generateAuthToken()
+                const token = await userValid.generateAuthtoken()
 
-                // console.log(token)
-                console.log("error")
+                // generate cookie 
+                res.cookie("usercookie", token,{
+                    expires:new Date(Date.now()+9000000),
+                    httpOnly:true
+                })
+
+                const result = {
+                    userValid,
+                    token
+                }
+
+                console.log(result)
+                res.status(201).json({status:200,result})
             }
         }
     } catch (error) {
