@@ -33,12 +33,14 @@ exports.loginApi = async(req,res)=>{
         const userValid = await user.findOne({email:email})
 
         if(userValid){
+
+        // to compare login password with hashed password
             const isMatch = await bcrypt.compare(password,userValid.password)
             if(!isMatch){
                 res.status(402).json("invalid details")
             }
             else{
-                
+
             }
         }
     } catch (error) {
