@@ -13,11 +13,11 @@ const Login = () => {
 
   const setVal = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+    // console.log(name, value);
     setinpVal({ ...inpVal, [name]: value });
   };
 
-  console.log(inpVal);
+  // console.log(inpVal);
 
   const addUserData = async(e) =>{
     e.preventDefault()
@@ -33,11 +33,12 @@ const Login = () => {
         })
       })
       const res = await data.json()
-      console.log(res,"res");
-      // if(res.status == 200){
-      //   (alert("registered successfully"))
-      //   nav("/")
-      // }
+      // console.log(res,"res");
+      if(res.status == 200){
+        (alert("login successfully"))
+        localStorage.setItem("userdata",res.result.token)
+        // nav("/")
+      }
     } catch (error) {
       console.log(error);
     }

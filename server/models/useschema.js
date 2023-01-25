@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const secret_key = "divyankaraideepakraisangeetaraii"
@@ -42,8 +42,11 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.pre("save", async function(next){
-    this.password = await bcrypt.hash(this.password,8)
-    this.cpassword = await bcrypt.hash(this.cpassword,8)
+
+    if(this.isModified("password")){
+        this.password = await bcrypt.hash(this.password,8)
+         this.cpassword = await bcrypt.hash(this.cpassword,8)
+    }
 
     next()
 })

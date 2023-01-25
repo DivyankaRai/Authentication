@@ -1,5 +1,5 @@
 const user = require("../models/useschema")
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 exports.registerApi = async(req,res)=> {
     const {name,email,password,cpassword} = req.body 
@@ -62,4 +62,10 @@ exports.loginApi = async(req,res)=>{
     } catch (error) {
         res.status(402).json(error)
     } 
+}
+
+exports.getApi = async = (req,res) =>{
+    // try{
+    //     // const userdata = await user.findOne({})
+    // }
 }
