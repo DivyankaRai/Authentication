@@ -24,6 +24,7 @@ exports.registerApi = async(req,res)=> {
         }
     } catch (error) {
         res.status(402).json(error)
+        console.log(error)
     }
 }
 
@@ -68,4 +69,5 @@ exports.getApi = async = (req,res) =>{
     // try{
     //     // const userdata = await user.findOne({})
     // }
+    console.log("done")
 }

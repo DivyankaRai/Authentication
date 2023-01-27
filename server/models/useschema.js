@@ -64,5 +64,5 @@ userSchema.methods.generateAuthtoken = async function(){
         res.status(401).json(error)
     }
 }
-const user = new mongoose.model("users",userSchema)
+const user = new mongoose.model("authentication",userSchema)
 module.exports = user

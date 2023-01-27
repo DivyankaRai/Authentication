@@ -1,10 +1,9 @@
-import { lightGreen } from '@mui/material/colors'
 import React,{useEffect} from 'react'
 
 const Dasboard = () => {
 
     const chkValidation = async() =>{
-        const token = localStorage.getItem("userdata")
+        let token = localStorage.getItem("userdata")
         // console.log(token)
         const res = await fetch("/validUser",{
             method:"GET",
