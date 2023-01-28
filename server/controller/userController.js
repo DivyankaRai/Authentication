@@ -65,9 +65,14 @@ exports.loginApi = async(req,res)=>{
     } 
 }
 
-exports.getApi = async = (req,res) =>{
-    // try{
-    //     // const userdata = await user.findOne({})
-    // }
-    console.log("done")
+exports.getApi = async(req,res) =>{
+    try {
+        const validUser = await user.findOne({_id:req.userId})
+        console.log(validUser)
+        res.status(201).json({status:200,validUser})
+
+    } catch (error) {
+
+        res.status(401).json(error)
+    }
 }

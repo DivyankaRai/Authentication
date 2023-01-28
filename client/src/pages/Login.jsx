@@ -37,7 +37,7 @@ const Login = () => {
       if(res.status == 200){
         (alert("login successfully"))
         localStorage.setItem("userdata",res.result.token)
-        // nav("/")
+        nav("/dashboard")
       }
     } catch (error) {
       console.log(error);
