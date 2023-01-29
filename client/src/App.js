@@ -8,7 +8,7 @@ import Register from "./pages/Register";
 function App() {
   return (
     <>
-    <Header/>
+    {/* <Header/> */}
     <Routes>
       <Route path="/" element={<Login/>} />
       <Route path="*" element={<Error/>} />

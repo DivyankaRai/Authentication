@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink , useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 const Login = () => {
 
@@ -45,6 +46,8 @@ const Login = () => {
   }
 
   return (
+    <>
+    <Header/>
     <div
       style={{
         width: "370px",
@@ -114,6 +117,7 @@ const Login = () => {
         </h4>
       </form>
     </div>
+    </>
   );
 };
 

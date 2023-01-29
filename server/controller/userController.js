@@ -76,3 +76,18 @@ exports.getApi = async(req,res) =>{
         res.status(401).json(error)
     }
 }
+
+exports.logoutApi = async(req,res)=>{
+    try {
+        req.rootUser.token = req.rootUser.token.filter((currel)=>{
+            return currel.token != req.token
+        })
+
+        res.clearCookie("usercookie",{path:"/"})
+        req.rootUser.save()
+        res.status(201).json(req.rootUser.tokens)
+
+    } catch (error) {
+        res.status(401).json(error)
+    }
+}

@@ -1,13 +1,13 @@
 import React,{createContext,useState} from 'react'
-export const DashData = createContext("")
+export const LoginContext = createContext([])
 
 const Context = ({children}) => {
-    const [logindata, setlogindata] = useState("")
+    const [loginData, setloginData] = useState([])
   return (
     <>
-    <DashData.Provider value={{logindata,setlogindata}}>
+    <LoginContext.Provider value={{loginData,setloginData}}>
       {children}
-    </DashData.Provider>
+    </LoginContext.Provider>
     </>
   )
 }
